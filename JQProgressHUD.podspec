@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
   # s.osx.deployment_target = '10.12.5'
 
   s.frameworks            = "UIKit", "Foundation"
-  s.source_files = 'JQProgressHUD/JQProgressHUD/JQProgressHUD
-  /*.swift'
+  s.source_files = 'Source/*.swift'
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
 end
