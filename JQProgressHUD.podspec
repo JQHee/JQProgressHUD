@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'JQProgressHUD'
-  s.version = '0.0.2'
+  s.version = '0.0.3'
   s.license = 'Apache License 2.0'
   s.summary = 'HUD in Swift'
   s.homepage = 'https://github.com/JQHee/JQProgressHUD'
