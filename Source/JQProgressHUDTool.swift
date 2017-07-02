@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JQProgressHUDTool: NSObject {
+open class JQProgressHUDTool: NSObject {
 
     
     public class func jq_showHUD(view: UIView? = UIApplication.shared.windows.last, msg: String? = "", needMask: Bool? = false) {

@@ -14,7 +14,7 @@ fileprivate struct Action {
     static let  removeToastAction = #selector(JQProgressHUD.removeToast(t:))
 }
 
-class JQProgressHUD: UIView {
+open class JQProgressHUD: UIView {
     
     // MARK: - 属性
     // 是否需要半透明遮罩
@@ -64,11 +64,11 @@ class JQProgressHUD: UIView {
         setupUI()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         if isToast {
