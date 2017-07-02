@@ -11,6 +11,11 @@
 		666C70AC1F07DB12003A8B8F /* JQProgressHUDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C70AB1F07DB12003A8B8F /* JQProgressHUDLabel.swift */; };
 		666C70AE1F07F20C003A8B8F /* JQHUDString-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C70AD1F07F20C003A8B8F /* JQHUDString-Extension.swift */; };
 		666C70B01F08299E003A8B8F /* JQWeakTimerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C70AF1F08299E003A8B8F /* JQWeakTimerObject.swift */; };
+		669FD6C91F09251B00821C51 /* JQProgressHUDIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669FD6C01F09251A00821C51 /* JQProgressHUDIOS.framework */; };
+		669FD6D01F09251B00821C51 /* JQProgressHUDIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669FD6CF1F09251B00821C51 /* JQProgressHUDIOSTests.swift */; };
+		669FD6D21F09251B00821C51 /* JQProgressHUDIOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 669FD6C21F09251A00821C51 /* JQProgressHUDIOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		669FD6D51F09251B00821C51 /* JQProgressHUDIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669FD6C01F09251A00821C51 /* JQProgressHUDIOS.framework */; };
+		669FD6D71F09251B00821C51 /* JQProgressHUDIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 669FD6C01F09251A00821C51 /* JQProgressHUDIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		66B6A3CA1F0699AA00B0CE47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6A3C91F0699AA00B0CE47 /* AppDelegate.swift */; };
 		66B6A3CC1F0699AA00B0CE47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6A3CB1F0699AA00B0CE47 /* ViewController.swift */; };
 		66B6A3CF1F0699AA00B0CE47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B6A3CD1F0699AA00B0CE47 /* Main.storyboard */; };
@@ -22,6 +27,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		669FD6CA1F09251B00821C51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66B6A3BE1F0699AA00B0CE47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 669FD6BF1F09251A00821C51;
+			remoteInfo = JQProgressHUDIOS;
+		};
+		669FD6CC1F09251B00821C51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66B6A3BE1F0699AA00B0CE47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66B6A3C51F0699AA00B0CE47;
+			remoteInfo = JQProgressHUD;
+		};
+		669FD6D31F09251B00821C51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66B6A3BE1F0699AA00B0CE47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 669FD6BF1F09251A00821C51;
+			remoteInfo = JQProgressHUDIOS;
+		};
 		66B6A3DB1F0699AA00B0CE47 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 66B6A3BE1F0699AA00B0CE47 /* Project object */;
@@ -38,11 +64,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		669FD6D61F09251B00821C51 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				669FD6D71F09251B00821C51 /* JQProgressHUDIOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		666C70A91F07C7EB003A8B8F /* JQProgressHUDTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQProgressHUDTool.swift; sourceTree = "<group>"; };
 		666C70AB1F07DB12003A8B8F /* JQProgressHUDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQProgressHUDLabel.swift; sourceTree = "<group>"; };
 		666C70AD1F07F20C003A8B8F /* JQHUDString-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JQHUDString-Extension.swift"; sourceTree = "<group>"; };
 		666C70AF1F08299E003A8B8F /* JQWeakTimerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQWeakTimerObject.swift; sourceTree = "<group>"; };
+		669FD6C01F09251A00821C51 /* JQProgressHUDIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JQProgressHUDIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		669FD6C21F09251A00821C51 /* JQProgressHUDIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JQProgressHUDIOS.h; sourceTree = "<group>"; };
+		669FD6C31F09251A00821C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		669FD6C81F09251A00821C51 /* JQProgressHUDIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JQProgressHUDIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		669FD6CF1F09251B00821C51 /* JQProgressHUDIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JQProgressHUDIOSTests.swift; sourceTree = "<group>"; };
+		669FD6D11F09251B00821C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66B6A3C61F0699AA00B0CE47 /* JQProgressHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JQProgressHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B6A3C91F0699AA00B0CE47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B6A3CB1F0699AA00B0CE47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,10 +106,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		669FD6BC1F09251A00821C51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		669FD6C51F09251A00821C51 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				669FD6C91F09251B00821C51 /* JQProgressHUDIOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66B6A3C31F0699AA00B0CE47 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				669FD6D51F09251B00821C51 /* JQProgressHUDIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,12 +146,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		669FD6C11F09251A00821C51 /* JQProgressHUDIOS */ = {
+			isa = PBXGroup;
+			children = (
+				669FD6C21F09251A00821C51 /* JQProgressHUDIOS.h */,
+				669FD6C31F09251A00821C51 /* Info.plist */,
+			);
+			path = JQProgressHUDIOS;
+			sourceTree = "<group>";
+		};
+		669FD6CE1F09251B00821C51 /* JQProgressHUDIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				669FD6CF1F09251B00821C51 /* JQProgressHUDIOSTests.swift */,
+				669FD6D11F09251B00821C51 /* Info.plist */,
+			);
+			path = JQProgressHUDIOSTests;
+			sourceTree = "<group>";
+		};
 		66B6A3BD1F0699AA00B0CE47 = {
 			isa = PBXGroup;
 			children = (
 				66B6A3C81F0699AA00B0CE47 /* JQProgressHUD */,
 				66B6A3DD1F0699AA00B0CE47 /* JQProgressHUDTests */,
 				66B6A3E81F0699AA00B0CE47 /* JQProgressHUDUITests */,
+				669FD6C11F09251A00821C51 /* JQProgressHUDIOS */,
+				669FD6CE1F09251B00821C51 /* JQProgressHUDIOSTests */,
 				66B6A3C71F0699AA00B0CE47 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,6 +182,8 @@
 				66B6A3C61F0699AA00B0CE47 /* JQProgressHUD.app */,
 				66B6A3DA1F0699AA00B0CE47 /* JQProgressHUDTests.xctest */,
 				66B6A3E51F0699AA00B0CE47 /* JQProgressHUDUITests.xctest */,
+				669FD6C01F09251A00821C51 /* JQProgressHUDIOS.framework */,
+				669FD6C81F09251A00821C51 /* JQProgressHUDIOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,7 +234,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		669FD6BD1F09251A00821C51 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				669FD6D21F09251B00821C51 /* JQProgressHUDIOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		669FD6BF1F09251A00821C51 /* JQProgressHUDIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 669FD6DC1F09251B00821C51 /* Build configuration list for PBXNativeTarget "JQProgressHUDIOS" */;
+			buildPhases = (
+				669FD6BB1F09251A00821C51 /* Sources */,
+				669FD6BC1F09251A00821C51 /* Frameworks */,
+				669FD6BD1F09251A00821C51 /* Headers */,
+				669FD6BE1F09251A00821C51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JQProgressHUDIOS;
+			productName = JQProgressHUDIOS;
+			productReference = 669FD6C01F09251A00821C51 /* JQProgressHUDIOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		669FD6C71F09251A00821C51 /* JQProgressHUDIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 669FD6DD1F09251B00821C51 /* Build configuration list for PBXNativeTarget "JQProgressHUDIOSTests" */;
+			buildPhases = (
+				669FD6C41F09251A00821C51 /* Sources */,
+				669FD6C51F09251A00821C51 /* Frameworks */,
+				669FD6C61F09251A00821C51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				669FD6CB1F09251B00821C51 /* PBXTargetDependency */,
+				669FD6CD1F09251B00821C51 /* PBXTargetDependency */,
+			);
+			name = JQProgressHUDIOSTests;
+			productName = JQProgressHUDIOSTests;
+			productReference = 669FD6C81F09251A00821C51 /* JQProgressHUDIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		66B6A3C51F0699AA00B0CE47 /* JQProgressHUD */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66B6A3EE1F0699AA00B0CE47 /* Build configuration list for PBXNativeTarget "JQProgressHUD" */;
@@ -158,10 +290,12 @@
 				66B6A3C21F0699AA00B0CE47 /* Sources */,
 				66B6A3C31F0699AA00B0CE47 /* Frameworks */,
 				66B6A3C41F0699AA00B0CE47 /* Resources */,
+				669FD6D61F09251B00821C51 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				669FD6D41F09251B00821C51 /* PBXTargetDependency */,
 			);
 			name = JQProgressHUD;
 			productName = JQProgressHUD;
@@ -214,6 +348,16 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = HJQ;
 				TargetAttributes = {
+					669FD6BF1F09251A00821C51 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 9Z4ZJ5K368;
+						ProvisioningStyle = Automatic;
+					};
+					669FD6C71F09251A00821C51 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 66B6A3C51F0699AA00B0CE47;
+					};
 					66B6A3C51F0699AA00B0CE47 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 9Z4ZJ5K368;
@@ -247,11 +391,27 @@
 				66B6A3C51F0699AA00B0CE47 /* JQProgressHUD */,
 				66B6A3D91F0699AA00B0CE47 /* JQProgressHUDTests */,
 				66B6A3E41F0699AA00B0CE47 /* JQProgressHUDUITests */,
+				669FD6BF1F09251A00821C51 /* JQProgressHUDIOS */,
+				669FD6C71F09251A00821C51 /* JQProgressHUDIOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		669FD6BE1F09251A00821C51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		669FD6C61F09251A00821C51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66B6A3C41F0699AA00B0CE47 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,6 +439,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		669FD6BB1F09251A00821C51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		669FD6C41F09251A00821C51 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				669FD6D01F09251B00821C51 /* JQProgressHUDIOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66B6A3C21F0699AA00B0CE47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -312,6 +487,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		669FD6CB1F09251B00821C51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 669FD6BF1F09251A00821C51 /* JQProgressHUDIOS */;
+			targetProxy = 669FD6CA1F09251B00821C51 /* PBXContainerItemProxy */;
+		};
+		669FD6CD1F09251B00821C51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66B6A3C51F0699AA00B0CE47 /* JQProgressHUD */;
+			targetProxy = 669FD6CC1F09251B00821C51 /* PBXContainerItemProxy */;
+		};
+		669FD6D41F09251B00821C51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 669FD6BF1F09251A00821C51 /* JQProgressHUDIOS */;
+			targetProxy = 669FD6D31F09251B00821C51 /* PBXContainerItemProxy */;
+		};
 		66B6A3DC1F0699AA00B0CE47 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 66B6A3C51F0699AA00B0CE47 /* JQProgressHUD */;
@@ -344,6 +534,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		669FD6D81F09251B00821C51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Z4ZJ5K368;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JQProgressHUDIOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQProgressHUDIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		669FD6D91F09251B00821C51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9Z4ZJ5K368;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = JQProgressHUDIOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQProgressHUDIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		669FD6DA1F09251B00821C51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = JQProgressHUDIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQProgressHUDIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JQProgressHUD.app/JQProgressHUD";
+			};
+			name = Debug;
+		};
+		669FD6DB1F09251B00821C51 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = JQProgressHUDIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQProgressHUDIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JQProgressHUD.app/JQProgressHUD";
+			};
+			name = Release;
+		};
 		66B6A3EC1F0699AA00B0CE47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -522,6 +782,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		669FD6DC1F09251B00821C51 /* Build configuration list for PBXNativeTarget "JQProgressHUDIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				669FD6D81F09251B00821C51 /* Debug */,
+				669FD6D91F09251B00821C51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		669FD6DD1F09251B00821C51 /* Build configuration list for PBXNativeTarget "JQProgressHUDIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				669FD6DA1F09251B00821C51 /* Debug */,
+				669FD6DB1F09251B00821C51 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		66B6A3C11F0699AA00B0CE47 /* Build configuration list for PBXProject "JQProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

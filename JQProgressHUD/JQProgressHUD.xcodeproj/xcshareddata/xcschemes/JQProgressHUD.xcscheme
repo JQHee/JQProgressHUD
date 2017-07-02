@@ -48,6 +48,16 @@
                ReferencedContainer = "container:JQProgressHUD.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "669FD6C71F09251A00821C51"
+               BuildableName = "JQProgressHUDIOSTests.xctest"
+               BlueprintName = "JQProgressHUDIOSTests"
+               ReferencedContainer = "container:JQProgressHUD.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
