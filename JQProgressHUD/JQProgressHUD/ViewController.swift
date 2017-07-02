@@ -27,13 +27,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showHUDAction(_ sender: Any) {
-        JQProgressHUDTool.jq_showHUD()
+        JQProgressHUDTool.jq_showHUD(view: self.view, msg: "加载中")
     }
     @IBAction func showToastAction(_ sender: Any) {
-        JQProgressHUDTool.jq_showToast(msg: "测试")
+        JQProgressHUDTool.jq_showToast(view: self.view, msg: "测试")
     }
     @IBAction func hideHudAction(_ sender: Any) {
-        JQProgressHUDTool.jq_hideHUD(animation: true)
+        JQProgressHUDTool.jq_hideHUD(view: self.view, animation: true)
     }
 
 }

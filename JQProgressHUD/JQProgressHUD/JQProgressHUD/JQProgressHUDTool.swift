@@ -16,8 +16,6 @@ class JQProgressHUDTool: NSObject {
         hud.isNeedMask = needMask!
         hud.detailLabel.text = msg
         hud.isUserInteractionEnabled = needMask!
-        
-        
     }
     
     class func jq_showToast(view: UIView? = UIApplication.shared.windows.last, msg: String? = "",duration: TimeInterval? = 3.0) {
@@ -25,7 +23,6 @@ class JQProgressHUDTool: NSObject {
         hud.duration = duration!
         hud.toastLabel.text = msg
         hud.isUserInteractionEnabled = false
-        
     }
     
     class func jq_hideHUD(view: UIView? = UIApplication.shared.windows.last, animation: Bool? = false) {

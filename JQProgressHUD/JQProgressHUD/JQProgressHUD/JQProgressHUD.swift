@@ -40,6 +40,8 @@ class JQProgressHUD: UIView {
         }
     }
     
+    var itemSize: CGSize = CGSize.init(width: 60.0, height: 60.0)
+    
     fileprivate var isNeedShowAnimation: Bool = false
     fileprivate var timer: Timer?
     // 承载当前view视图
@@ -72,6 +74,7 @@ class JQProgressHUD: UIView {
         if isToast {
             adjustToastLabelFrame()
         }else {
+            containerView.frame = CGRect.init(x: 0, y: 0, width: itemSize.width, height: itemSize.height)
             containerView.center = self.center
             adjustIndicatorViewFrame()
         }
@@ -79,10 +82,11 @@ class JQProgressHUD: UIView {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        print("deinit")
+        //print("deinit")
     }
     
     // MARK: - private methods
+    
     private func addAnimations(view: UIView, duration: TimeInterval? = 0.3) {
         view.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
         let alpha = view.alpha
@@ -130,9 +134,9 @@ class JQProgressHUD: UIView {
         
         if textLength > 0 {
             activityIndicatorView.frame.origin.x = (containerView.bounds.size.width - activityIndicatorView.bounds.size.width) / 2.0
-            activityIndicatorView.frame.origin.y = 1
+            activityIndicatorView.frame.origin.y = (containerView.bounds.size.height-(activityIndicatorView.frame.size.height + 18)) / 2.0
             
-            detailLabel.frame  = CGRect.init(x: 0, y: containerView.bounds.size.height - 19, width: containerView.bounds.size.width, height: 18)
+            detailLabel.frame  = CGRect.init(x: 0, y: activityIndicatorView.frame.size.height + activityIndicatorView.frame.origin.y, width: containerView.bounds.size.width, height: 18)
             
         }else {
             activityIndicatorView.frame.origin.x = (containerView.bounds.size.width - activityIndicatorView.bounds.size.width) / 2.0
@@ -147,8 +151,7 @@ class JQProgressHUD: UIView {
         let textLength = toastLabel.text?.characters.count ?? 0
         if textLength > 0 {
             let height = (toastLabel.text?.jq_heightWithConstrainedWidth(width: self.bounds.width * 0.5, font: toastLabel.font))! + 16.0
-            toastLabel.frame = CGRect.init(x: 0, y: 0, width: self.bounds.size.width * 0.5, height: height)
-            toastLabel.center = self.center
+            toastLabel.frame = CGRect.init(x: self.bounds.size.width / 4.0 , y: toastLabel.frame.origin.y == 0 ? (self.bounds.size.height - height) / 2.0 : toastLabel.frame.origin.y, width: self.bounds.size.width * 0.5, height: height)
         }
     }
     
@@ -174,7 +177,6 @@ class JQProgressHUD: UIView {
     
     fileprivate var containerView: UIView = {
         let containerView: UIView = UIView.init()
-        containerView.frame = CGRect.init(x: 0, y: 0, width: 50.0, height: 50.0)
         containerView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.9)
         containerView.layer.masksToBounds = true
         containerView.layer.cornerRadius = 8.0
