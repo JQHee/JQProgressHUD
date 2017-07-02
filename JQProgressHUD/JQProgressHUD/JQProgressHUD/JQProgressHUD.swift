@@ -18,7 +18,7 @@ class JQProgressHUD: UIView {
     
     // MARK: - 属性
     // 是否需要半透明遮罩
-    var isNeedMask: Bool = false {
+    public var isNeedMask: Bool = false {
         didSet {
             if isNeedMask {
                 self.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
@@ -29,7 +29,7 @@ class JQProgressHUD: UIView {
         }
     }
     
-    var duration: TimeInterval = 3.0 {
+    public var duration: TimeInterval = 3.0 {
         didSet {
             if isNeedShowAnimation {
                 addAnimations(view: toastLabel)
@@ -40,7 +40,7 @@ class JQProgressHUD: UIView {
         }
     }
     
-    var itemSize: CGSize = CGSize.init(width: 60.0, height: 60.0)
+    public var itemSize: CGSize = CGSize.init(width: 60.0, height: 60.0)
     
     fileprivate var isNeedShowAnimation: Bool = false
     fileprivate var timer: Timer?
@@ -184,7 +184,7 @@ class JQProgressHUD: UIView {
         return containerView
     }()
     
-    open var toastLabel: JQProgressHUDLabel = {
+    public var toastLabel: JQProgressHUDLabel = {
         let containerLabel: JQProgressHUDLabel = JQProgressHUDLabel.init()
         containerLabel.textColor = UIColor.white
         containerLabel.font = UIFont.systemFont(ofSize: 14)
@@ -197,7 +197,7 @@ class JQProgressHUD: UIView {
         return containerLabel
     }()
     
-    open var detailLabel: JQProgressHUDLabel = {
+    public var detailLabel: JQProgressHUDLabel = {
         let label: JQProgressHUDLabel = JQProgressHUDLabel.init()
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 12)
@@ -210,7 +210,7 @@ class JQProgressHUD: UIView {
 
 extension JQProgressHUD {
     
-    class func showHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
+    public class func showHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
         _ = JQProgressHUD.hideHUD(fromView: view, animation: false)
         let hud = JQProgressHUD.init(view: view, isToast: false)
         hud.isNeedShowAnimation = animation!
@@ -218,7 +218,7 @@ extension JQProgressHUD {
         return hud
     }
     
-    class func showToastHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
+    public class func showToastHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
         _ = JQProgressHUD.hideHUD(fromView: view, animation: false)
         let hud = JQProgressHUD.init(view: view, isToast: true)
         view.addSubview(hud)
@@ -227,13 +227,13 @@ extension JQProgressHUD {
         return hud
     }
     
-    class func hideHUD(fromView view: UIView , animation: Bool) -> Bool {
+    public class func hideHUD(fromView view: UIView , animation: Bool) -> Bool {
         guard let hud:JQProgressHUD = JQProgressHUD.getHUD(fromView: view) else { return false}
         hud.removeToast(t: nil)
         return true
     }
     
-    class func getHUD(fromView view: UIView) -> JQProgressHUD? {
+    public class func getHUD(fromView view: UIView) -> JQProgressHUD? {
         for subview in view.subviews where subview is JQProgressHUD {
             return subview as? JQProgressHUD
         }

@@ -13,7 +13,7 @@ class JQWeakTimerObject: NSObject {
     weak var targat: AnyObject?
     var selector: Selector?
     var timer: Timer?
-    static func scheduledTimerWithTimeInterval(_ interval: TimeInterval,
+    public static func scheduledTimerWithTimeInterval(_ interval: TimeInterval,
                                                aTargat: AnyObject,
                                                aSelector: Selector,
                                                userInfo: AnyObject?,
@@ -28,7 +28,7 @@ class JQWeakTimerObject: NSObject {
                                                    repeats: repeats)
         return weakObject.timer!
     }
-    func fire(_ ti: Timer) {
+    public func fire(_ ti: Timer) {
         if let _ = targat {
             _ = targat?.perform(selector!, with: ti.userInfo)
         } else {
