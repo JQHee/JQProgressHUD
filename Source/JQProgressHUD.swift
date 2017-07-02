@@ -82,6 +82,7 @@ class JQProgressHUD: UIView {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        removeTimer()
         //print("deinit")
     }
     
