@@ -56,10 +56,6 @@
 		666C70AB1F07DB12003A8B8F /* JQProgressHUDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQProgressHUDLabel.swift; sourceTree = "<group>"; };
 		666C70AD1F07F20C003A8B8F /* JQHUDString-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JQHUDString-Extension.swift"; sourceTree = "<group>"; };
 		666C70AF1F08299E003A8B8F /* JQWeakTimerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQWeakTimerObject.swift; sourceTree = "<group>"; };
-		669FD6C21F09251A00821C51 /* JQProgressHUDIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JQProgressHUDIOS.h; sourceTree = "<group>"; };
-		669FD6C31F09251A00821C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		669FD6CF1F09251B00821C51 /* JQProgressHUDIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JQProgressHUDIOSTests.swift; sourceTree = "<group>"; };
-		669FD6D11F09251B00821C51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66B6A3C61F0699AA00B0CE47 /* JQProgressHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JQProgressHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B6A3C91F0699AA00B0CE47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B6A3CB1F0699AA00B0CE47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,32 +97,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		669FD6C11F09251A00821C51 /* JQProgressHUDIOS */ = {
-			isa = PBXGroup;
-			children = (
-				669FD6C21F09251A00821C51 /* JQProgressHUDIOS.h */,
-				669FD6C31F09251A00821C51 /* Info.plist */,
-			);
-			path = JQProgressHUDIOS;
-			sourceTree = "<group>";
-		};
-		669FD6CE1F09251B00821C51 /* JQProgressHUDIOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				669FD6CF1F09251B00821C51 /* JQProgressHUDIOSTests.swift */,
-				669FD6D11F09251B00821C51 /* Info.plist */,
-			);
-			path = JQProgressHUDIOSTests;
-			sourceTree = "<group>";
-		};
 		66B6A3BD1F0699AA00B0CE47 = {
 			isa = PBXGroup;
 			children = (
 				66B6A3C81F0699AA00B0CE47 /* JQProgressHUD */,
 				66B6A3DD1F0699AA00B0CE47 /* JQProgressHUDTests */,
 				66B6A3E81F0699AA00B0CE47 /* JQProgressHUDUITests */,
-				669FD6C11F09251A00821C51 /* JQProgressHUDIOS */,
-				669FD6CE1F09251B00821C51 /* JQProgressHUDIOSTests */,
 				66B6A3C71F0699AA00B0CE47 /* Products */,
 			);
 			sourceTree = "<group>";

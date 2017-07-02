@@ -14,10 +14,10 @@ fileprivate struct Action {
     static let  removeToastAction = #selector(JQProgressHUD.removeToast(t:))
 }
 
-open class JQProgressHUD: UIView {
+public class JQProgressHUD: UIView {
     
-    // MARK: - 属性
-    // 是否需要半透明遮罩
+    // MARK: - property
+    // translucent mask
     public var isNeedMask: Bool = false {
         didSet {
             if isNeedMask {
@@ -35,8 +35,8 @@ open class JQProgressHUD: UIView {
                 addAnimations(view: toastLabel)
             }
             addTimer(duration: duration)
-            //3秒后消失
-            //perform(Action.removeToastAction, with: pView!, afterDelay: duration)
+            // 3s
+            // perform(Action.removeToastAction, with: pView!, afterDelay: duration)
         }
     }
     
@@ -44,19 +44,15 @@ open class JQProgressHUD: UIView {
     
     fileprivate var isNeedShowAnimation: Bool = false
     fileprivate var timer: Timer?
-    // 承载当前view视图
     fileprivate var pView: UIView?
     fileprivate var isToast: Bool = false
     
-    
-    
-    
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    /// 便利构造器
-    convenience init(view: UIView, isToast: Bool) {
+    /// convenience constructor
+    convenience public init(view: UIView, isToast: Bool) {
         self.init(frame: view.bounds)
         self.isToast = isToast
         self.pView = view
@@ -68,7 +64,7 @@ open class JQProgressHUD: UIView {
         super.init(coder: aDecoder)
     }
     
-    override open func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         if isToast {
@@ -87,7 +83,6 @@ open class JQProgressHUD: UIView {
     }
     
     // MARK: - private methods
-    
     private func addAnimations(view: UIView, duration: TimeInterval? = 0.3) {
         view.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
         let alpha = view.alpha
@@ -116,13 +111,11 @@ open class JQProgressHUD: UIView {
         registerForNotifications()
     }
     
-    // 注册通知当屏幕旋转调整frame
     private func registerForNotifications() {
         
         NotificationCenter.default.addObserver(self, selector:#selector(statusBarOrientationDidChange(notification:)) , name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
     }
     
-    // 接收通知调用的方法
     @objc private func statusBarOrientationDidChange(notification:NSNotification) {
         
         guard let view = self.superview else { return }
@@ -246,10 +239,8 @@ extension JQProgressHUD {
         guard let hud:JQProgressHUD = JQProgressHUD.getHUD(fromView: pView!) else { return }
         if hud.tag == KTOASTHUDTAG {
             hud.removeFromSuperview()
-            
         }else {
             hud.removeFromSuperview()
-
         }
     }
 }
