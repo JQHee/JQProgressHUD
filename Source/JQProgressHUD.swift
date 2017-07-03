@@ -8,8 +8,6 @@
 
 import UIKit
 
-fileprivate let KTOASTHUDTAG = 999999
-
 fileprivate struct Action {
     static let  removeToastAction = #selector(JQProgressHUD.removeToast(t:))
 }
@@ -35,17 +33,50 @@ public class JQProgressHUD: UIView {
                 addAnimations(view: toastLabel)
             }
             addTimer(duration: duration)
-            // 3s
-            // perform(Action.removeToastAction, with: pView!, afterDelay: duration)
         }
     }
     
-    public var itemSize: CGSize = CGSize.init(width: 60.0, height: 60.0)
+    public var containerViewBGcolor: UIColor? {
+        didSet {
+            containerView.backgroundColor = containerViewBGcolor
+        }
+    }
+    
+    public var containerViewRadius: CGFloat? = 8.0 {
+        didSet {
+            containerView.layer.cornerRadius = containerViewRadius!
+        }
+    }
+    
+    public var indicatorViewSize: CGSize = CGSize.init(width: 30.0, height: 30) {
+        didSet {
+            customIndicatorView.frame = CGRect.init(x: 0, y: 0, width: indicatorViewSize.width, height: indicatorViewSize.height)
+        }
+    }
+    
+    public var containerViewSize: CGSize = CGSize.init(width: 65.0, height: 65.0) {
+        didSet {
+            containerView.frame = CGRect.init(x: 0, y: 0, width: containerViewSize.width, height: containerViewSize.height)
+        }
+    }
+    
+    public var indicatorView: UIView! {
+        didSet {
+            for view in customIndicatorView.subviews {
+                view.removeFromSuperview()
+            }
+            indicatorViewSize = indicatorView.bounds.size
+            customIndicatorView.addSubview(indicatorView)
+        }
+    }
+    
+    public var toastViewWidth: CGFloat! = 0
     
     fileprivate var isNeedShowAnimation: Bool = false
     fileprivate var timer: Timer?
     fileprivate var pView: UIView?
     fileprivate var isToast: Bool = false
+
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,6 +86,7 @@ public class JQProgressHUD: UIView {
     convenience public init(view: UIView, isToast: Bool) {
         self.init(frame: view.bounds)
         self.isToast = isToast
+        self.toastViewWidth = bounds.size.width / 2.0
         self.pView = view
         commitInit()
         setupUI()
@@ -70,7 +102,7 @@ public class JQProgressHUD: UIView {
         if isToast {
             adjustToastLabelFrame()
         }else {
-            containerView.frame = CGRect.init(x: 0, y: 0, width: itemSize.width, height: itemSize.height)
+            containerView.frame = CGRect.init(x: 0, y: 0, width: containerViewSize.width, height: containerViewSize.height)
             containerView.center = self.center
             adjustIndicatorViewFrame()
         }
@@ -127,16 +159,15 @@ public class JQProgressHUD: UIView {
         let textLength = detailLabel.text?.characters.count ?? 0
         
         if textLength > 0 {
-            activityIndicatorView.frame.origin.x = (containerView.bounds.size.width - activityIndicatorView.bounds.size.width) / 2.0
-            activityIndicatorView.frame.origin.y = (containerView.bounds.size.height-(activityIndicatorView.frame.size.height + 18)) / 2.0
+            customIndicatorView.frame.origin.x = (containerView.bounds.size.width - customIndicatorView.bounds.size.width) / 2.0
+            customIndicatorView.frame.origin.y = (containerView.bounds.size.height-(customIndicatorView.frame.size.height + 18)) / 2.0
             
-            detailLabel.frame  = CGRect.init(x: 0, y: activityIndicatorView.frame.size.height + activityIndicatorView.frame.origin.y, width: containerView.bounds.size.width, height: 18)
+            detailLabel.frame  = CGRect.init(x: 0, y: customIndicatorView.frame.size.height + customIndicatorView.frame.origin.y + 3, width: containerView.bounds.size.width, height: 18)
             
         }else {
-            activityIndicatorView.frame.origin.x = (containerView.bounds.size.width - activityIndicatorView.bounds.size.width) / 2.0
-            activityIndicatorView.frame.origin.y = (containerView.bounds.size.height - activityIndicatorView.bounds.size.height) / 2.0
+            customIndicatorView.frame.origin.x = (containerView.bounds.size.width - customIndicatorView.bounds.size.width) / 2.0
+            customIndicatorView.frame.origin.y = (containerView.bounds.size.height - customIndicatorView.bounds.size.height) / 2.0
         }
-        
 
     }
     
@@ -144,8 +175,8 @@ public class JQProgressHUD: UIView {
         
         let textLength = toastLabel.text?.characters.count ?? 0
         if textLength > 0 {
-            let height = (toastLabel.text?.jq_heightWithConstrainedWidth(width: self.bounds.width * 0.5, font: toastLabel.font))! + 16.0
-            toastLabel.frame = CGRect.init(x: self.bounds.size.width / 4.0 , y: toastLabel.frame.origin.y == 0 ? (self.bounds.size.height - height) / 2.0 : toastLabel.frame.origin.y, width: self.bounds.size.width * 0.5, height: height)
+            let height = (toastLabel.text?.jq_heightWithConstrainedWidth(width: toastViewWidth, font: toastLabel.font))! + 16.0
+            toastLabel.frame = CGRect.init(x: (self.bounds.size.width - toastViewWidth) / 2.0 , y: toastLabel.frame.origin.y == 0 ? (self.bounds.size.height - height) / 2.0 : toastLabel.frame.origin.y, width: toastViewWidth, height: height)
         }
     }
     
@@ -156,18 +187,10 @@ public class JQProgressHUD: UIView {
             addSubview(toastLabel)
         }else {
             addSubview(containerView)
-            containerView.addSubview(activityIndicatorView)
+            containerView.addSubview(customIndicatorView)
             containerView.addSubview(detailLabel)
         }
     }
-    
-    // MARK: - lazy load
-    fileprivate var activityIndicatorView: UIActivityIndicatorView = {
-        let indicatorView: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
-        indicatorView.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        indicatorView.startAnimating()
-        return indicatorView
-    }()
     
     fileprivate var containerView: UIView = {
         let containerView: UIView = UIView.init()
@@ -177,6 +200,12 @@ public class JQProgressHUD: UIView {
         return containerView
     }()
     
+    fileprivate var customIndicatorView: UIView = {
+        let view: UIView = UIView.init()
+        view.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        return view
+    }()
+
     public var toastLabel: JQProgressHUDLabel = {
         let containerLabel: JQProgressHUDLabel = JQProgressHUDLabel.init()
         containerLabel.textColor = UIColor.white
@@ -204,7 +233,7 @@ public class JQProgressHUD: UIView {
 extension JQProgressHUD {
     
     public class func showHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
-        _ = JQProgressHUD.hideHUD(fromView: view, animation: false)
+        _ = JQProgressHUD.hideHUD(fromView: view)
         let hud = JQProgressHUD.init(view: view, isToast: false)
         hud.isNeedShowAnimation = animation!
         view.addSubview(hud)
@@ -212,15 +241,14 @@ extension JQProgressHUD {
     }
     
     public class func showToastHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
-        _ = JQProgressHUD.hideHUD(fromView: view, animation: false)
+        _ = JQProgressHUD.hideHUD(fromView: view)
         let hud = JQProgressHUD.init(view: view, isToast: true)
         view.addSubview(hud)
         hud.isNeedShowAnimation = animation!
-        hud.tag = KTOASTHUDTAG
         return hud
     }
     
-    public class func hideHUD(fromView view: UIView , animation: Bool) -> Bool {
+    public class func hideHUD(fromView view: UIView ) -> Bool {
         guard let hud:JQProgressHUD = JQProgressHUD.getHUD(fromView: view) else { return false}
         hud.removeToast(t: nil)
         return true
@@ -234,14 +262,9 @@ extension JQProgressHUD {
     }
     
     @objc fileprivate func removeToast(t: Timer?) {
-        //NSObject.cancelPreviousPerformRequests(withTarget: self)
         removeTimer()
-        guard let hud:JQProgressHUD = JQProgressHUD.getHUD(fromView: pView!) else { return }
-        if hud.tag == KTOASTHUDTAG {
-            hud.removeFromSuperview()
-        }else {
-            hud.removeFromSuperview()
-        }
+        guard let hud: JQProgressHUD = JQProgressHUD.getHUD(fromView: pView!) else { return }
+        hud.removeFromSuperview()
     }
 }
 
