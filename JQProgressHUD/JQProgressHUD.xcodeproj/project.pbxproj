@@ -11,6 +11,8 @@
 		666C70AC1F07DB12003A8B8F /* JQProgressHUDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C70AB1F07DB12003A8B8F /* JQProgressHUDLabel.swift */; };
 		666C70AE1F07F20C003A8B8F /* JQHUDString-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C70AD1F07F20C003A8B8F /* JQHUDString-Extension.swift */; };
 		666C70B01F08299E003A8B8F /* JQWeakTimerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 666C70AF1F08299E003A8B8F /* JQWeakTimerObject.swift */; };
+		66B38AFA1F09D0E400FB535E /* JQIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B38AF91F09D0E400FB535E /* JQIndicatorView.swift */; };
+		66B38AFC1F09E15C00FB535E /* JQCircularindicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B38AFB1F09E15C00FB535E /* JQCircularindicatorView.swift */; };
 		66B6A3CA1F0699AA00B0CE47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6A3C91F0699AA00B0CE47 /* AppDelegate.swift */; };
 		66B6A3CC1F0699AA00B0CE47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B6A3CB1F0699AA00B0CE47 /* ViewController.swift */; };
 		66B6A3CF1F0699AA00B0CE47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66B6A3CD1F0699AA00B0CE47 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		666C70AB1F07DB12003A8B8F /* JQProgressHUDLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQProgressHUDLabel.swift; sourceTree = "<group>"; };
 		666C70AD1F07F20C003A8B8F /* JQHUDString-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JQHUDString-Extension.swift"; sourceTree = "<group>"; };
 		666C70AF1F08299E003A8B8F /* JQWeakTimerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQWeakTimerObject.swift; sourceTree = "<group>"; };
+		66B38AF91F09D0E400FB535E /* JQIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQIndicatorView.swift; sourceTree = "<group>"; };
+		66B38AFB1F09E15C00FB535E /* JQCircularindicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQCircularindicatorView.swift; sourceTree = "<group>"; };
 		66B6A3C61F0699AA00B0CE47 /* JQProgressHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JQProgressHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66B6A3C91F0699AA00B0CE47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66B6A3CB1F0699AA00B0CE47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				666C70AB1F07DB12003A8B8F /* JQProgressHUDLabel.swift */,
 				666C70AD1F07F20C003A8B8F /* JQHUDString-Extension.swift */,
 				666C70AF1F08299E003A8B8F /* JQWeakTimerObject.swift */,
+				66B38AF91F09D0E400FB535E /* JQIndicatorView.swift */,
+				66B38AFB1F09E15C00FB535E /* JQCircularindicatorView.swift */,
 			);
 			path = JQProgressHUD;
 			sourceTree = "<group>";
@@ -298,8 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				666C70AA1F07C7EB003A8B8F /* JQProgressHUDTool.swift in Sources */,
+				66B38AFC1F09E15C00FB535E /* JQCircularindicatorView.swift in Sources */,
 				666C70AE1F07F20C003A8B8F /* JQHUDString-Extension.swift in Sources */,
 				66B6A3F91F069A2C00B0CE47 /* JQProgressHUD.swift in Sources */,
+				66B38AFA1F09D0E400FB535E /* JQIndicatorView.swift in Sources */,
 				66B6A3CC1F0699AA00B0CE47 /* ViewController.swift in Sources */,
 				666C70B01F08299E003A8B8F /* JQWeakTimerObject.swift in Sources */,
 				666C70AC1F07DB12003A8B8F /* JQProgressHUDLabel.swift in Sources */,
