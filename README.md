@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/cocoapods/l/JQProgressHUD.svg?style=flat)](http://cocoapods.org/pods/JQProgressHUD)
 [![Platform](https://img.shields.io/cocoapods/p/JQProgressHUD.svg?style=flat)](http://cocoapods.org/pods/JQProgressHUD)
 
+#### [中文说明](readme.zh.md)
 
 ## Screenshots
 
