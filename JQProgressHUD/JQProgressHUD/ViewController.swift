@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     }
 
     // MARK: -  lazy load
-    fileprivate var datas: [String] = ["normalHUD","customHUD","progressHUD","showImageHUD","toastHUD","hideHUD"]
+    fileprivate var datas: [String] = ["normalHUD","customHUD","progressHUD","showImageHUD","showOvalHUD","toastHUD","hideHUD"]
 
 }
 
@@ -56,10 +56,10 @@ extension ViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
-            JQProgressHUDTool.jq_showNormalHUD(msg: "加载中...")
+            JQProgressHUDTool.jq_showNormalHUD(msg: "Loading...")
             break
         case 1:
-            JQProgressHUDTool.jq_showCustomHUD(msg: "加载中...")
+            JQProgressHUDTool.jq_showCustomHUD(msg: "Loading...")
             break
         case 2:
             DispatchQueue.global().async {
@@ -67,7 +67,7 @@ extension ViewController: UITableViewDelegate {
                 for i in 1...100 {
                     Thread.sleep(forTimeInterval: 0.02)
                     DispatchQueue.main.async {
-                        JQProgressHUDTool.jq_showCircularHUD(msg: "加载中...", progress: CGFloat(i))
+                        JQProgressHUDTool.jq_showCircularHUD(msg: "Loading...", progress: CGFloat(i))
                     }
                 }
                 Thread.sleep(forTimeInterval: 0.1)
@@ -77,12 +77,19 @@ extension ViewController: UITableViewDelegate {
             }
             break
         case 3:
-            JQProgressHUDTool.jq_showImageHUD( msg: "错误", imageName: "Error")
+            JQProgressHUDTool.jq_showImageHUD( msg: "Error", imageName: "Error")
             break
+            
         case 4:
-            JQProgressHUDTool.jq_showToastHUD( msg: "我是一个toast")
+            let hud = JQProgressHUDTool.jq_showOvalHUD(msg: "Loading...")
+//            hud.isIndicatorViewLeft = false
+//            hud.containerViewSize = CGSize.init(width: 65, height: 65)
             break
+            
         case 5:
+            JQProgressHUDTool.jq_showToastHUD( msg: "test Toast")
+            break
+        case 6:
             JQProgressHUDTool.jq_hideHUD()
             break
             

@@ -48,12 +48,6 @@ public class JQProgressHUD: UIView {
         }
     }
     
-    public var indicatorViewSize: CGSize = CGSize.init(width: 30.0, height: 30) {
-        didSet {
-            customIndicatorView.frame = CGRect.init(x: 0, y: 0, width: indicatorViewSize.width, height: indicatorViewSize.height)
-        }
-    }
-    
     public var containerViewSize: CGSize = CGSize.init(width: 65.0, height: 65.0) {
         didSet {
             containerView.frame = CGRect.init(x: 0, y: 0, width: containerViewSize.width, height: containerViewSize.height)
@@ -70,8 +64,19 @@ public class JQProgressHUD: UIView {
         }
     }
     
-    public var toastViewWidth: CGFloat! = 0
+    public var toastViewWidth: CGFloat = 0
     
+    public var isIndicatorViewLeft: Bool = false {
+        didSet {
+            
+        }
+    }
+    
+    private var indicatorViewSize: CGSize = CGSize.init(width: 30.0, height: 30) {
+        didSet {
+            customIndicatorView.frame = CGRect.init(x: 0, y: 0, width: indicatorViewSize.width, height: indicatorViewSize.height)
+        }
+    }
     fileprivate var isNeedShowAnimation: Bool = false
     fileprivate var timer: Timer?
     fileprivate var pView: UIView?
@@ -148,7 +153,7 @@ public class JQProgressHUD: UIView {
         NotificationCenter.default.addObserver(self, selector:#selector(statusBarOrientationDidChange(notification:)) , name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
     }
     
-    @objc private func statusBarOrientationDidChange(notification:NSNotification) {
+    @objc private func statusBarOrientationDidChange(notification: NSNotification) {
         
         guard let view = self.superview else { return }
         frame = view.bounds
@@ -157,12 +162,37 @@ public class JQProgressHUD: UIView {
     private func adjustIndicatorViewFrame() {
         
         let textLength = detailLabel.text?.characters.count ?? 0
+        var customIndicatorViewX: CGFloat = 0
+        var customIndicatorViewY: CGFloat = 0
+        var detailLabelW: CGFloat = 0
+        var detailLabelX: CGFloat = 0
+        var detailLabelY: CGFloat = 0
+        let detailLabelH: CGFloat = 18.0
         
         if textLength > 0 {
-            customIndicatorView.frame.origin.x = (containerView.bounds.size.width - customIndicatorView.bounds.size.width) / 2.0
-            customIndicatorView.frame.origin.y = (containerView.bounds.size.height-(customIndicatorView.frame.size.height + 18)) / 2.0
             
-            detailLabel.frame  = CGRect.init(x: 0, y: customIndicatorView.frame.size.height + customIndicatorView.frame.origin.y + 3, width: containerView.bounds.size.width, height: 18)
+            if isIndicatorViewLeft {
+                
+                detailLabelW = (containerView.bounds.size.width - customIndicatorView.bounds.size.width - 13)
+                customIndicatorViewX = 5
+                customIndicatorViewY = (containerView.bounds.size.height - (customIndicatorView.frame.size.height)) / 2.0
+                detailLabelX = customIndicatorViewX + customIndicatorView.bounds.size.width + 3
+                detailLabelY = (containerView.bounds.size.height - detailLabelH) / 2.0
+                detailLabel.textAlignment = .left
+            
+            }else {
+                customIndicatorViewX = (containerView.bounds.size.width - customIndicatorView.bounds.size.width) / 2.0
+                customIndicatorViewY = (containerView.bounds.size.height - (customIndicatorView.frame.size.height + detailLabelH)) / 2.0
+                detailLabelW = containerView.bounds.size.width
+                detailLabelY = customIndicatorView.frame.size.height + customIndicatorViewY + 3
+                detailLabelX = 0
+    
+            }
+            
+            customIndicatorView.frame.origin.x = customIndicatorViewX
+            customIndicatorView.frame.origin.y = customIndicatorViewY
+            detailLabel.frame  = CGRect.init(x: detailLabelX, y: detailLabelY, width: detailLabelW, height: detailLabelH)
+
             
         }else {
             customIndicatorView.frame.origin.x = (containerView.bounds.size.width - customIndicatorView.bounds.size.width) / 2.0
@@ -210,7 +240,7 @@ public class JQProgressHUD: UIView {
         let containerLabel: JQProgressHUDLabel = JQProgressHUDLabel.init()
         containerLabel.textColor = UIColor.white
         containerLabel.font = UIFont.systemFont(ofSize: 14)
-        containerLabel.numberOfLines = 2
+        containerLabel.numberOfLines = 0
         containerLabel.layer.masksToBounds = true
         containerLabel.layer.cornerRadius = 8.0
         containerLabel.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.9)
