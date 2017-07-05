@@ -7,7 +7,7 @@
 
 ## Screenshots
 
-![result.gif](http://upload-images.jianshu.io/upload_images/678898-920067a27f5de210.gif?imageMogr2/auto-orient/strip)
+![result.gif](http://upload-images.jianshu.io/upload_images/678898-64495045d8e44869.gif?imageMogr2/auto-orient/strip)
 
 ## Requirements
 
