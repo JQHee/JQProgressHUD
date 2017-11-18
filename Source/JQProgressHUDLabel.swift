@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public class JQProgressHUDLabel: UILabel {
+public class JQProgressHUDLabel: UILabel {
 
     public var insets: UIEdgeInsets?
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-@objc public class JQWeakTimerObject: NSObject {
+public class JQWeakTimerObject: NSObject {
     public weak var targat: AnyObject?
     public var selector: Selector?
     public var timer: Timer?

@@ -12,7 +12,7 @@ fileprivate struct Action {
     static let  removeToastAction = #selector(JQProgressHUD.removeToast(t:))
 }
 
-@objc public class JQProgressHUD: UIView {
+public class JQProgressHUD: UIView {
     
     // MARK: - property
     // translucent mask
