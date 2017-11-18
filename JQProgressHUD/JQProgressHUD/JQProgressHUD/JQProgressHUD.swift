@@ -12,7 +12,7 @@ fileprivate struct Action {
     static let  removeToastAction = #selector(JQProgressHUD.removeToast(t:))
 }
 
-public class JQProgressHUD: UIView {
+@objc public class JQProgressHUD: UIView {
     
     // MARK: - property
     // translucent mask
@@ -260,7 +260,7 @@ public class JQProgressHUD: UIView {
     }()
 }
 
-extension JQProgressHUD {
+public extension JQProgressHUD {
     
     public class func showHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
         _ = JQProgressHUD.hideHUD(fromView: view)

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension String {
+public extension String {
     
     public func jq_heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
@@ -18,7 +18,7 @@ extension String {
     }
 }
 
-extension NSAttributedString {
+public extension NSAttributedString {
     
      public func jq_heightWithConstrainedWidth(width: CGFloat) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
