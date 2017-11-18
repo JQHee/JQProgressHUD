@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'JQProgressHUD'
-  s.version = '2.5.2'
+  s.version = '2.5.3'
   s.license = 'Apache License 2.0'
   s.summary = 'HUD in Swift'
   s.homepage = 'https://github.com/JQHee/JQProgressHUD'
@@ -12,5 +12,5 @@ Pod::Spec.new do |s|
 
   s.frameworks            = "UIKit", "Foundation"
   s.source_files = 'Source/**/*.swift'
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
+
 end
