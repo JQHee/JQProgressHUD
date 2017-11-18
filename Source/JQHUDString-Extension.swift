@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-public extension String {
-    
-    public func jq_heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
-        return boundingBox.height
-    }
-}
+//public extension String {
+//    
+//    public func jq_heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+//        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+//        let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+//        return boundingBox.height
+//    }
+//}
 
 public extension NSAttributedString {
     

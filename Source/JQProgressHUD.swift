@@ -205,7 +205,8 @@ fileprivate struct Action {
         
         let textLength = toastLabel.text?.count ?? 0
         if textLength > 0 {
-            let height = (toastLabel.text?.jq_heightWithConstrainedWidth(width: toastViewWidth, font: toastLabel.font))! + 16.0
+            let height = (toastLabel.attributedText?.jq_heightWithConstrainedWidth(width: toastViewWidth))! + 16
+                //jq_heightWithConstrainedWidth(width: toastViewWidth, font: toastLabel.font))! + 16.0
             toastLabel.frame = CGRect.init(x: (self.bounds.size.width - toastViewWidth) / 2.0 , y: toastLabel.frame.origin.y == 0 ? (self.bounds.size.height - height) / 2.0 : toastLabel.frame.origin.y, width: toastViewWidth, height: height)
         }
     }
