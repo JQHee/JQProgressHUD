@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JQCircularIndicatorView: UIView {
+@objc public class JQCircularIndicatorView: UIView {
 
     override public init(frame: CGRect) {
         super.init(frame: frame)

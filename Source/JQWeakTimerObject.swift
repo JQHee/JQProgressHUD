@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class JQWeakTimerObject: NSObject {
+@objc public class JQWeakTimerObject: NSObject {
     public weak var targat: AnyObject?
     public var selector: Selector?
     public var timer: Timer?
@@ -27,7 +27,7 @@ public class JQWeakTimerObject: NSObject {
                                                    repeats: repeats)
         return weakObject.timer!
     }
-    public func fire(_ ti: Timer) {
+    @objc public func fire(_ ti: Timer) {
         if let _ = targat {
             _ = targat?.perform(selector!, with: ti.userInfo)
         } else {

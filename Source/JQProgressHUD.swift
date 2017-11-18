@@ -12,7 +12,7 @@ fileprivate struct Action {
     static let  removeToastAction = #selector(JQProgressHUD.removeToast(t:))
 }
 
-public class JQProgressHUD: UIView {
+@objc public class JQProgressHUD: UIView {
     
     // MARK: - property
     // translucent mask
@@ -161,7 +161,7 @@ public class JQProgressHUD: UIView {
     
     private func adjustIndicatorViewFrame() {
         
-        let textLength = detailLabel.text?.characters.count ?? 0
+        let textLength = detailLabel.text?.count ?? 0
         var customIndicatorViewX: CGFloat = 0
         var customIndicatorViewY: CGFloat = 0
         var detailLabelW: CGFloat = 0
@@ -203,7 +203,7 @@ public class JQProgressHUD: UIView {
     
     private func adjustToastLabelFrame() {
         
-        let textLength = toastLabel.text?.characters.count ?? 0
+        let textLength = toastLabel.text?.count ?? 0
         if textLength > 0 {
             let height = (toastLabel.text?.jq_heightWithConstrainedWidth(width: toastViewWidth, font: toastLabel.font))! + 16.0
             toastLabel.frame = CGRect.init(x: (self.bounds.size.width - toastViewWidth) / 2.0 , y: toastLabel.frame.origin.y == 0 ? (self.bounds.size.height - height) / 2.0 : toastLabel.frame.origin.y, width: toastViewWidth, height: height)

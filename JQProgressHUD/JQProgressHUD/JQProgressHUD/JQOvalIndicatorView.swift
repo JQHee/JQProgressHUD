@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JQOvalIndicatorView: UIView {
+@objc public class JQOvalIndicatorView: UIView {
 
     public var color: UIColor? = UIColor.white {
         didSet{

@@ -81,7 +81,7 @@ extension ViewController: UITableViewDelegate {
             break
             
         case 4:
-            let hud = JQProgressHUDTool.jq_showOvalHUD(msg: "Loading...")
+            let _ = JQProgressHUDTool.jq_showOvalHUD(msg: "Loading...")
 //            hud.isIndicatorViewLeft = false
 //            hud.containerViewSize = CGSize.init(width: 65, height: 65)
             break
