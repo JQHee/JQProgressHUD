@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public class JQCircularIndicatorView: UIView {
+open class JQCircularIndicatorView: UIView {
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,8 +51,8 @@ import UIKit
     fileprivate func configParams() {
         
         progressLabel.text = "0%"
-        lineWidth = frame.size.height < frame.size.width ? frame.size.height/20 : frame.size.width/20
-        radius = frame.size.height < frame.size.width ? frame.size.height/2 - lineWidth/2 : frame.size.width/2 - lineWidth/2
+        lineWidth = frame.size.height < frame.size.width ? frame.size.height / 20 : frame.size.width / 20
+        radius = frame.size.height < frame.size.width ? frame.size.height / 2 - lineWidth / 2 : frame.size.width / 2 - lineWidth / 2
         
         backgroundLayer.fillColor = UIColor.clear.cgColor
         backgroundLayer.strokeColor = UIColor.gray.cgColor
@@ -83,7 +83,7 @@ import UIKit
         addSubview(progressLabel)
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         
         // 设置 progressLabel 的frame
         let pw =  (radius - lineWidth/2) * (radius - lineWidth/2) * 2

@@ -9,7 +9,7 @@
 import UIKit
 
 
-@objc public class JQProgressHUDTool: NSObject {
+open class JQProgressHUDTool: NSObject {
 
     @discardableResult
     public class func jq_showNormalHUD(view: UIView? = UIApplication.shared.windows.last, msg: String? = "",  isNeedmask: Bool? = false, isUserInteractionEnabled: Bool? = false, animation: Bool? = false) -> JQProgressHUD {

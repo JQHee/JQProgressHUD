@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public class JQIndicatorView: UIView {
+open class JQIndicatorView: UIView {
 
     public var color: UIColor? = UIColor.white {
         didSet{

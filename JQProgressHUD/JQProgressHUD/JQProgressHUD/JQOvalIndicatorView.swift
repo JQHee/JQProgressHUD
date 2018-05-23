@@ -8,29 +8,28 @@
 
 import UIKit
 
-@objc public class JQOvalIndicatorView: UIView {
+open class JQOvalIndicatorView: UIView {
 
-    public var color: UIColor? = UIColor.white {
+    @objc public var color: UIColor? = UIColor.white {
         didSet{
             commonInit()
         }
     }
     
-    public var lineWidth: CGFloat = 3.0 {
+    @objc public var lineWidth: CGFloat = 3.0 {
         didSet{
             commonInit()
         }
     }
     
-    //private let radius: CGFloat = 10
-    
+    // MARK: - System methods
     override public init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     // MARK: - private methods
@@ -47,12 +46,10 @@ import UIKit
         ovalShapeLayer.fillColor = UIColor.clear.cgColor
         ovalShapeLayer.lineWidth = lineWidth
         
-        let anotherOvalRadius = frame.size.height/2 * 0.85
+        let anotherOvalRadius = frame.size.height / 2 * 0.85
         
-        ovalShapeLayer.path = UIBezierPath(ovalIn: CGRect(x: frame.size.width/2 - anotherOvalRadius, y: frame.size.height/2 - anotherOvalRadius, width: anotherOvalRadius * 2, height: anotherOvalRadius * 2)).cgPath
+        ovalShapeLayer.path = UIBezierPath(ovalIn: CGRect(x: frame.size.width / 2 - anotherOvalRadius, y: frame.size.height / 2 - anotherOvalRadius, width: anotherOvalRadius * 2, height: anotherOvalRadius * 2)).cgPath
         ovalShapeLayer.lineCap = kCALineCapRound
-        
-        
     }
     
     // MARK: - lazy load
@@ -62,7 +59,6 @@ import UIKit
         return indicatorLayer
     }()
 
-    
     fileprivate func startAnimation() {
         
         let strokeStartAnimate = CABasicAnimation(keyPath: "strokeStart")

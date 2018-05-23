@@ -12,11 +12,11 @@ fileprivate struct Action {
     static let  removeToastAction = #selector(JQProgressHUD.removeToast(t:))
 }
 
-@objc public class JQProgressHUD: UIView {
+open class JQProgressHUD: UIView {
     
     // MARK: - property
     // translucent mask
-    public var isNeedMask: Bool = false {
+    @objc public var isNeedMask: Bool = false {
         didSet {
             if isNeedMask {
                 self.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
@@ -27,7 +27,7 @@ fileprivate struct Action {
         }
     }
     
-    public var duration: TimeInterval = 3.0 {
+    @objc public var duration: TimeInterval = 3.0 {
         didSet {
             if isNeedShowAnimation {
                 addAnimations(view: toastLabel)
@@ -36,7 +36,7 @@ fileprivate struct Action {
         }
     }
     
-    public var containerViewBGcolor: UIColor? {
+    @objc public var containerViewBGcolor: UIColor? {
         didSet {
             containerView.backgroundColor = containerViewBGcolor
         }
@@ -48,13 +48,13 @@ fileprivate struct Action {
         }
     }
     
-    public var containerViewSize: CGSize = CGSize.init(width: 65.0, height: 65.0) {
+    @objc public var containerViewSize: CGSize = CGSize.init(width: 65.0, height: 65.0) {
         didSet {
             containerView.frame = CGRect.init(x: 0, y: 0, width: containerViewSize.width, height: containerViewSize.height)
         }
     }
     
-    public var indicatorView: UIView! {
+    @objc public var indicatorView: UIView! {
         didSet {
             for view in customIndicatorView.subviews {
                 view.removeFromSuperview()
@@ -64,19 +64,16 @@ fileprivate struct Action {
         }
     }
     
-    public var toastViewWidth: CGFloat = 0
+    @objc public var toastViewWidth: CGFloat = 0
     
-    public var isIndicatorViewLeft: Bool = false {
-        didSet {
-            
-        }
-    }
+    @objc public var isIndicatorViewLeft: Bool = false
     
     private var indicatorViewSize: CGSize = CGSize.init(width: 30.0, height: 30) {
         didSet {
             customIndicatorView.frame = CGRect.init(x: 0, y: 0, width: indicatorViewSize.width, height: indicatorViewSize.height)
         }
     }
+    
     fileprivate var isNeedShowAnimation: Bool = false
     fileprivate var timer: Timer?
     fileprivate var pView: UIView?
@@ -101,7 +98,7 @@ fileprivate struct Action {
         super.init(coder: aDecoder)
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         if isToast {
@@ -116,7 +113,6 @@ fileprivate struct Action {
     deinit {
         NotificationCenter.default.removeObserver(self)
         removeTimer()
-        //print("deinit")
     }
     
     // MARK: - private methods
@@ -139,7 +135,9 @@ fileprivate struct Action {
     }
     
     fileprivate func removeTimer() {
-        guard let _ = timer else { return }
+        guard let _ = timer else {
+            return
+        }
         timer?.invalidate()
         timer = nil
     }
@@ -280,13 +278,15 @@ public extension JQProgressHUD {
         return hud
     }
     
-    public class func hideHUD(fromView view: UIView ) -> Bool {
-        guard let hud:JQProgressHUD = JQProgressHUD.getHUD(fromView: view) else { return false}
+    @objc public class func hideHUD(fromView view: UIView ) -> Bool {
+        guard let hud:JQProgressHUD = JQProgressHUD.getHUD(fromView: view) else {
+            return false
+        }
         hud.removeToast(t: nil)
         return true
     }
     
-    public class func getHUD(fromView view: UIView) -> JQProgressHUD? {
+    @objc public class func getHUD(fromView view: UIView) -> JQProgressHUD? {
         for subview in view.subviews where subview is JQProgressHUD {
             return subview as? JQProgressHUD
         }
@@ -295,7 +295,9 @@ public extension JQProgressHUD {
     
     @objc fileprivate func removeToast(t: Timer?) {
         removeTimer()
-        guard let hud: JQProgressHUD = JQProgressHUD.getHUD(fromView: pView!) else { return }
+        guard let hud: JQProgressHUD = JQProgressHUD.getHUD(fromView: pView!) else {
+            return
+        }
         hud.removeFromSuperview()
     }
 }

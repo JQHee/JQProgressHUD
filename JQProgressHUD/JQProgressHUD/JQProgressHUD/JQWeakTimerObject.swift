@@ -8,11 +8,12 @@
 
 import Foundation
 
-@objc public class JQWeakTimerObject: NSObject {
-    public weak var targat: AnyObject?
-    public var selector: Selector?
-    public var timer: Timer?
-    public static func scheduledTimerWithTimeInterval(_ interval: TimeInterval,
+open class JQWeakTimerObject: NSObject {
+    
+    @objc public weak var targat: AnyObject?
+    @objc public var selector: Selector?
+    @objc public var timer: Timer?
+    @objc public static func scheduledTimerWithTimeInterval(_ interval: TimeInterval,
                                                aTargat: AnyObject,
                                                aSelector: Selector,
                                                userInfo: AnyObject?,
@@ -27,6 +28,7 @@ import Foundation
                                                    repeats: repeats)
         return weakObject.timer!
     }
+    
     @objc public func fire(_ ti: Timer) {
         if let _ = targat {
             _ = targat?.perform(selector!, with: ti.userInfo)
@@ -34,4 +36,5 @@ import Foundation
             timer?.invalidate()
         }
     }
+    
 }
