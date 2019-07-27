@@ -8,12 +8,12 @@
 
 import UIKit
 
-@objc public class JQProgressHUDLabel: UILabel {
+open class JQProgressHUDLabel: UILabel {
 
     public var insets: UIEdgeInsets?
     
-    override  public func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, self.insets!))
+    override  open func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: self.insets!))
     }
 
 }

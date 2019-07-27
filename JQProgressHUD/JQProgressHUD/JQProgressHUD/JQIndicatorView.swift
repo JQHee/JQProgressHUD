@@ -43,7 +43,7 @@ open class JQIndicatorView: UIView {
         indicatorLayer.fillColor = UIColor.clear.cgColor
         indicatorLayer.strokeColor = UIColor.black.cgColor
         indicatorLayer.lineWidth = lineWidth
-        indicatorLayer.lineCap = kCALineCapRound
+        indicatorLayer.lineCap = CAShapeLayerLineCap.round
         
         // path
         let startAngle: CGFloat = 0

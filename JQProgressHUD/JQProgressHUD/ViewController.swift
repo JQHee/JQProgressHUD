@@ -40,7 +40,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: String.init(describing: UITableViewCell.self))
         if cell == nil {
-            cell = UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: String.init(describing: UITableViewCell.self))
+            cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: String.init(describing: UITableViewCell.self))
         }
         cell?.textLabel?.text = datas[indexPath.row]
         return cell!

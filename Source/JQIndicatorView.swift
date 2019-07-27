@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public class JQIndicatorView: UIView {
+open class JQIndicatorView: UIView {
 
     public var color: UIColor? = UIColor.white {
         didSet{
@@ -43,7 +43,7 @@ import UIKit
         indicatorLayer.fillColor = UIColor.clear.cgColor
         indicatorLayer.strokeColor = UIColor.black.cgColor
         indicatorLayer.lineWidth = lineWidth
-        indicatorLayer.lineCap = kCALineCapRound
+        indicatorLayer.lineCap = CAShapeLayerLineCap.round
         
         // path
         let startAngle: CGFloat = 0

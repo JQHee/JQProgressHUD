@@ -2,6 +2,8 @@
 ## 中文说明
 ####  `JQProgressHUD` 是一个 HUD 指示器。
 
+# Ported to Swift 5 in version 2.7
+
 #### 注意
 `JQProgressHUD` 基于 `"Xcode 8.2 / Swift 3 / iOS 10` 而写 ，请在最新版 Xcode 来编译JQProgressHUD,旧版本的 Xcode 可能有效，但不保证会出现一些兼容性问题。
 

@@ -13,7 +13,7 @@ open class JQProgressHUDLabel: UILabel {
     public var insets: UIEdgeInsets?
     
     override  open func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, self.insets!))
+        super.drawText(in: rect.inset(by: self.insets!))
     }
 
 }
