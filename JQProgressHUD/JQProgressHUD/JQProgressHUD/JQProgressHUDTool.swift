@@ -17,7 +17,7 @@ open class JQProgressHUDTool: NSObject {
         let hud: JQProgressHUD = JQProgressHUD.showHUD(addTo: view!, animation: animation)
         hud.isNeedMask = isNeedmask!
         hud.detailLabel.text = msg!
-        let activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+        let activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView(style: .white)
         activityIndicatorView.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
         activityIndicatorView.startAnimating()
         hud.indicatorView = activityIndicatorView
@@ -79,7 +79,7 @@ open class JQProgressHUDTool: NSObject {
         hud.duration = 3.0
         let imageView: UIImageView = UIImageView.init()
         imageView.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        imageView.contentMode = UIViewContentMode.center
+        imageView.contentMode = UIView.ContentMode.center
         imageView.image = UIImage.init(named: imageName ?? "")
         hud.indicatorView = imageView
         hud.containerViewBGcolor = UIColor.orange

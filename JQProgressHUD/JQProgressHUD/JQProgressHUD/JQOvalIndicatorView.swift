@@ -49,7 +49,7 @@ open class JQOvalIndicatorView: UIView {
         let anotherOvalRadius = frame.size.height / 2 * 0.85
         
         ovalShapeLayer.path = UIBezierPath(ovalIn: CGRect(x: frame.size.width / 2 - anotherOvalRadius, y: frame.size.height / 2 - anotherOvalRadius, width: anotherOvalRadius * 2, height: anotherOvalRadius * 2)).cgPath
-        ovalShapeLayer.lineCap = kCALineCapRound
+        ovalShapeLayer.lineCap = CAShapeLayerLineCap.round
     }
     
     // MARK: - lazy load

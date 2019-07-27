@@ -130,7 +130,7 @@ open class JQProgressHUD: UIView {
     private func addTimer(duration: TimeInterval) {
         removeTimer()
         timer = JQWeakTimerObject.scheduledTimerWithTimeInterval(duration, aTargat: self, aSelector: Action.removeToastAction, userInfo: pView!, repeats: false)
-        RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
+        RunLoop.current.add(timer!, forMode: RunLoop.Mode.common)
         
     }
     
@@ -148,7 +148,7 @@ open class JQProgressHUD: UIView {
     
     private func registerForNotifications() {
         
-        NotificationCenter.default.addObserver(self, selector:#selector(statusBarOrientationDidChange(notification:)) , name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(statusBarOrientationDidChange(notification:)) , name: UIApplication.didChangeStatusBarOrientationNotification, object: nil)
     }
     
     @objc private func statusBarOrientationDidChange(notification: NSNotification) {
