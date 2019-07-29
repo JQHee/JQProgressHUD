@@ -260,9 +260,9 @@ open class JQProgressHUD: UIView {
     }()
 }
 
-public extension JQProgressHUD {
+extension JQProgressHUD {
     
-    class func showHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
+    public class func showHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
         _ = JQProgressHUD.hideHUD(fromView: view)
         let hud = JQProgressHUD.init(view: view, isToast: false)
         hud.isNeedShowAnimation = animation!
@@ -270,7 +270,7 @@ public extension JQProgressHUD {
         return hud
     }
     
-    class func showToastHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
+    public class func showToastHUD(addTo view: UIView, animation: Bool? = false) -> JQProgressHUD {
         _ = JQProgressHUD.hideHUD(fromView: view)
         let hud = JQProgressHUD.init(view: view, isToast: true)
         view.addSubview(hud)
@@ -278,7 +278,7 @@ public extension JQProgressHUD {
         return hud
     }
     
-    @objc class func hideHUD(fromView view: UIView ) -> Bool {
+    @objc public class func hideHUD(fromView view: UIView ) -> Bool {
         guard let hud:JQProgressHUD = JQProgressHUD.getHUD(fromView: view) else {
             return false
         }
@@ -286,7 +286,7 @@ public extension JQProgressHUD {
         return true
     }
     
-    @objc class func getHUD(fromView view: UIView) -> JQProgressHUD? {
+    @objc public class func getHUD(fromView view: UIView) -> JQProgressHUD? {
         for subview in view.subviews where subview is JQProgressHUD {
             return subview as? JQProgressHUD
         }

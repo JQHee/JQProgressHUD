@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-public extension String {
+extension String {
     
-    func jq_heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+   public func jq_heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         #if swift(>=4.0)
         let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
@@ -23,9 +23,9 @@ public extension String {
     }
 }
 
-public extension NSAttributedString {
+extension NSAttributedString {
     
-    func jq_heightWithConstrainedWidth(width: CGFloat) -> CGFloat {
+    public func jq_heightWithConstrainedWidth(width: CGFloat) -> CGFloat {
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, context: nil)
         return ceil(boundingBox.height)
